@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тук-тук — Магазин морозива</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            padding-top: 35px;
+            color: #1a1a1a;
+
+            /* Розовый фон в крапочку (стиль Doki Doki), зафиксированный на месте */
+            background-color: #ff9eb5;
+            background-image:
+                radial-gradient(#ffffff 20%, transparent 21%),
+                radial-gradient(#ffffff 20%, transparent 21%);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            background-attachment: fixed;
+        }
+
+        /* 1. Шапка-капсула с полупрозрачным фоном */
+        header {
+            max-width: 1080px;
+            height: 68px;
+            margin: 0 auto;
+            padding: 0 35px;
+            background-color: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(4px);
+            border: 1.5px solid #222222;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .header-left,
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .header-left {
+            justify-content: flex-start;
+        }
+
+        .header-right {
+            justify-content: flex-end;
+            gap: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #e91e63;
+        }
+
+        /* Увеличенная эмблема по центру с надписью «Тук-тук» */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 130px;
+            height: 130px;
+            background-color: #ffffff;
+            border: 2px solid #222222;
+            border-radius: 50%;
+            margin: 0 20px;
+            z-index: 10;
+            flex-shrink: 0;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.06);
+        }
+
+        .logo img {
+            width: 82px;
+            height: 82px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .header-icons {
+            display: flex;
+            list-style: none;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .header-icons img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            transition: transform 0.2s ease;
+        }
+
+        .header-icons img:hover {
+            transform: scale(1.15);
+        }
+
+        /* 2. Первый екран */
+        .hero {
+            max-width: 1080px;
+            margin: 65px auto 0;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+        /* БЕЛЫЙ ФОН вокруг всего текста для чёткой читаемости */
+        .hero-text {
+            flex: 1;
+            max-width: 520px;
+            background-color: #ffffff;
+            /* Чёткий белый фон */
+            border: 1.5px solid #222222;
+            /* Аккуратная рамка в стиле шапки */
+            border-radius: 32px;
+            /* Скруглённые углы */
+            padding: 35px 40px;
+            /* Внутренние отступы вокруг текста */
+            box-shadow: 0 8px 0 rgba(34, 34, 34, 0.15);
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #1a1a1a;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #222222;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        /* Жёлтая кнопка-капсула */
+        .btn-yellow {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #ffe05d;
+            color: #1a1a1a;
+            border: 1.5px solid #222222;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 4px 0 #222222;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+        }
+
+        .btn-yellow:hover {
+            background-color: #ffd426;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #222222;
+        }
+
+        /* Картинка мороженого справа */
+        .hero-image {
+            flex: 1.1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.12));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <nav>
+                <ul>
+                    <li><a href="#Main">Головна</a></li>
+                    <li><a href="#About-us">Про нас</a></li>
+                    <li><a href="#Goods">Товари</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <a href="#Main" class="logo">
+            <img src="img/Logo.png" alt="Логотип Тук-тук">
+            <span class="logo-text">Тук-тук</span>
+        </a>
+
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="#Tastes">Смаки</a></li>
+                    <li><a href="#Contacts">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <ul class="header-icons">
+                <li><a href="#favorites"><img src="img/Heart.png" alt="Обране"></a></li>
+                <li><a href="#cart"><img src="img/shopping-cart 1.png" alt="Кошик"></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="Main" class="hero">
+            <div class="hero-text">
+                <h1>Спробуй<br>найкраще<br>морозиво</h1>
+                <p>Справжня насолода з натуральних інгредієнтів. Ми створюємо унікальні смаки з любов'ю, використовуючи
+                    свіжі фрукти, вершки та перевірені часом рецепти.</p>
+                <a href="#Goods" class="btn-yellow">Дізнатись більше</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="img/ice-cream.png" alt="Морозиво у креманці">
+            </div>
+        </section>
+
+        <section id="About-us"></section>
+        <section id="Goods"></section>
+        <section id="Tastes"></section>
+        <section id="Contacts"></section>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>
