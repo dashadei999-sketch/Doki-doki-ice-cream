@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин</title>
+    <style>
+        /* Базовый сброс отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffb6c1;
+            padding-top: 30px;
+        }
+
+        /* Белая капсула шапки */
+        header {
+            max-width: 1100px;
+            height: 60px;
+            margin: 0 auto;
+            padding: 0 35px;
+            background-color: #ffffff;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Левый и правый блоки по бокам от лого */
+        .header-left,
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .header-left {
+            justify-content: flex-start;
+        }
+
+        .header-right {
+            justify-content: flex-end;
+            gap: 30px;
+        }
+
+        /* Навигационное меню */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #e91e63;
+        }
+
+        /* Выступающий круглый логотип по центру */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 95px;
+            height: 95px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            z-index: 10;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        /* Иконки справа */
+        .header-icons {
+            display: flex;
+            list-style: none;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .header-icons img {
+            width: 24px;
+            height: 24px;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .header-icons img:hover {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Левая часть: 3 пункта меню -->
+        <div class="header-left">
+            <nav>
+                <ul>
+                    <li><a href="#Main">Головна</a></li>
+                    <li><a href="#About-us">Про нас</a></li>
+                    <li><a href="#Goods">Товари</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Центр: выступающий круглый логотип -->
+        <a href="#Main" class="logo">
+            <img src="img/Logo.png" alt="Логотип">
+        </a>
+
+        <!-- Правая часть: 2 пункта меню + иконки -->
+        <div class="header-right">
+            <nav>
+                <ul>
+                    <li><a href="#Tastes">Смаки</a></li>
+                    <li><a href="#Contacts">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <ul class="header-icons">
+                <li><a href="#favorites"><img src="img/Heart.png" alt="Обране"></a></li>
+                <li><a href="#cart"><img src="img/shopping-cart 1.png" alt="Кошик"></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="Main"></section>
+        <section id="About-us"></section>
+        <section id="Goods"></section>
+        <section id="Tastes"></section>
+        <section id="Contacts"></section>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>
