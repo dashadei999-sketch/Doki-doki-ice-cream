@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Магазин морозива</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
             padding-top: 30px;
             color: #1a1a1a;
 
-            /* Розовый фон в белый горошок (стиль Doki Doki) */
+         
             background-color: #ff9eb5;
             background-image:
                 radial-gradient(#ffffff 20%, transparent 21%),
@@ -28,7 +28,7 @@
             background-attachment: fixed;
         }
 
-        /* 1. Белая капсула шапки */
+        
         header {
             max-width: 1050px;
             height: 62px;
@@ -77,7 +77,7 @@
             color: #e91e63;
         }
 
-        /* Выступающий круглый логотип по центру */
+        
         .logo {
             display: flex;
             align-items: center;
@@ -122,7 +122,7 @@
             transform: scale(1.15);
         }
 
-        /* 2. Первый экран */
+        
         .hero {
             max-width: 1050px;
             margin: 55px auto 0;
@@ -133,7 +133,7 @@
             gap: 35px;
         }
 
-        /* Левая белая карточка с текстом и чиби-Моникой */
+       
         .hero-text {
             flex: 1;
             max-width: 520px;
@@ -161,7 +161,7 @@
             letter-spacing: -1px;
         }
 
-        /* КОНТЕЙНЕР ДЛЯ МОНИКИ И ОБЛАЧКА С РЕПЛИКОЙ */
+        
         .monika-wrapper {
             position: relative;
             display: inline-block;
@@ -177,17 +177,17 @@
             transition: transform 0.25s ease;
         }
 
-        /* При наведении или нажатии Моника слегка подпрыгивает */
+        
         .monika-wrapper:hover .monika-sticker,
         .monika-wrapper:active .monika-sticker {
             transform: translateY(-4px) rotate(-3deg) scale(1.05);
         }
 
-        /* Само облачко с текстом */
+        
         .speech-bubble {
             position: absolute;
             bottom: 105%;
-            /* Появляется ровно над головой Моники */
+            
             left: 50%;
             transform: translateX(-50%) translateY(8px) scale(0.85);
             background-color: #ffffff;
@@ -208,7 +208,7 @@
             z-index: 20;
         }
 
-        /* Треугольный хвостик облачка снизу */
+        
         .speech-bubble::after {
             content: '';
             position: absolute;
@@ -220,7 +220,6 @@
             border-color: #222222 transparent transparent transparent;
         }
 
-        /* Показываем облачко при наведении или нажатии */
         .monika-wrapper:hover .speech-bubble,
         .monika-wrapper:active .speech-bubble {
             opacity: 1;
@@ -236,7 +235,7 @@
             margin-bottom: 28px;
         }
 
-        /* Желтая кнопка-капсула */
+     
         .btn-yellow {
             display: inline-block;
             padding: 14px 32px;
@@ -322,10 +321,11 @@
                 <div class="hero-top">
                     <h1>Спробуй<br>найкраще<br>морозиво</h1>
 
-                    <!-- Обёртка для Моники и облачка -->
+                   
                     <div class="monika-wrapper" tabindex="0">
                         <div class="speech-bubble">Найкраще морозиво! 🍦</div>
-                        <img src="img\Без названия64_20261112201627.png" alt="Моника с мороженым" class="monika-sticker">
+                        <img src="img\Без названия64_20261112201627.png" alt="Моника с мороженым"
+                            class="monika-sticker">
                     </div>
                 </div>
 
@@ -343,10 +343,105 @@
         <section id="Goods"></section>
         <section id="Tastes"></section>
         <section id="Contacts"></section>
-    </main>
+        <section id="Goods" class="product-showcase">
+            <div class="showcase-box">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">
+                    <span class="title-dot">✦</span>
+                    Наше морозиво
+                    <span class="title-dot">✦</span>
+                </h2>
+            </div>
 
-    <footer>
-    </footer>
+
+                
+                <div class="showcase-left">
+
+                    <div class="icecream-thumbs">
+
+                    <section id="Goods" class="goods-grid">
+                        <div class="ice-cream-card">
+                            <img src="img\Monicaicecream.jpg" alt="Яблуко">
+                        </div>
+                        <div class="ice-cream-card">
+                            <img src="img\IcecreamYuri.jpg" alt="Лісові ягоди">
+                        </div>
+                        <div class="ice-cream-card">
+                            <img src="img\Sayoriicecream.jpg" alt="Персик">
+                        </div>
+                        <div class="ice-cream-card">
+                            <img src="img\Natsukiicecream.jpg" alt="Полуниця">
+                        </div>
+                    </section>
+
+
+
+                    </div>
+                </div>
+<div class="white-card">
+    <span>Вже у продажу</span>
+    <h2>Полуничний рай</h2>
+    <p>Свіжа полуниця, ніжні вершки та хрусткий ріжок.</p>
+    <p class="price">85 грн</p>
+    <a href="#order" class="btn-yellow">Замовити зараз</a>
+</div>
+
+        </section>
+
+    </main>
+<link rel="stylesheet" href="index.css">
+<section id="About-us" class="story-section">
+    <div class="story-card">
+        <h2>Історія нашої продукції</h2>
+        <p>
+            А от наша лінійка в стилі Doki Doki Literature Club народилася з ідеї поєднати улюблений десерт із вайбом
+            культового
+            літературного клубу, який вийшов у 2017 році та миттєво підкорив інтернет. Гра завірусилася завдяки
+            контрасту милої
+            аніме-естетики й несподіваних сюжетних поворотів, а кожна героїня стала справжньою іконою для фанатів.
+        </p>
+        <p>
+            Саме тому ми створили чотири унікальні смаки під характер кожної учасниці клубу: свіже зелене яблуко Моніки,
+            загадкові
+            лісові ягоди Юрі, сонячний персик Сайорі та яскраву полуницю Нацукі. Це ідеальний спосіб підняти настрій
+            після навчання
+            — обираєш улюблену героїню, хрустиш ріжком і ловиш чистий кайф без жодних багів у коді!
+        </p>
+    </div>
+</section>
+<section id="Process" class="process-section">
+    <div class="process-grid">
+        <div class="process-card">
+            <span class="step-badge">Крок 1</span>
+            <h3>Обери свого улюбленого персонажа</h3>
+            <p>Визначся зі смаком під свій настрій — свіже яблуко Моніки, лісові ягоди Юрі, сонячний персик Сайорі чи
+                полуниця Нацукі.</p>
+        </div>
+
+        <div class="process-card">
+            <span class="step-badge">Крок 2</span>
+            <h3>Оформи замовлення за хвилину</h3>
+            <p>Додай обрані ріжки в кошик і залиш контакти для доставки всього у два кліки.</p>
+        </div>
+
+        <div class="process-card">
+            <span class="step-badge">Крок 3</span>
+            <h3>Забирай та насолоджуйся десертом</h3>
+            <p>Отримай ідеально охолоджене морозиво від кур’єра та влаштуй солодку перерву без жодних багів!</p>
+        </div>
+    </div>
+</section>
+<footer class="ddlc-stickers-footer">
+    <div class="stickers-row">
+        <img src="img\Sayorichibi.png" alt="Sayori" class="chibi-sticker">
+        <img src="img\Yurichibi.png" alt="Yuri" class="chibi-sticker">
+        <img src="img\Monicachibi.png" alt="Monika" class="chibi-sticker">
+        <img src="img\natsukichibi.png" alt="Natsuki" class="chibi-sticker">
+    </div>
+</footer>
+
+
+    
 
 </body>
 
